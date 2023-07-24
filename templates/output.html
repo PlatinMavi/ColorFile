@@ -5,23 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ColorFile</title>
 
+    <style>
+        .grad{
+            background: linear-gradient(45deg, #0f1c3a, #133359, #165279, #177c9b, #138e99);
+        }
+        .primary{
+            background-color: #030712;
+        }
+        .test {
+            
+            background-image: linear-gradient(#ffffff60 1px, transparent 1px), linear-gradient(to right, #bdbdbd60 1px, transparent 1px);
+            background-size: 20px 20px; /* Updated background size */
+
+          }
+        .b:hover{
+            background: linear-gradient(45deg, #0f1c3a, #133359, #165279, #177c9b, #138e99);
+        }
+          
+    </style>
+
     <!-- Add the link to your custom Tailwind CSS file or use the CDN link -->
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100">
-    <div class="container mx-auto p-6">
-        <h1 class="text-3xl w-max mx-auto font-bold mb-6">Result:</h1>
-        <div class="flex items-center justify-center">
-            {% if is_image %}
-                <img class="w-96 h-96 object-cover rounded-lg shadow-md mb-4" src="{{ url_for('static', filename='output/' ~ image_path) }}" alt="Generated Image">
-            {% else %}
-                <p class="text-xl text-gray-800 mb-4">File: {{ image_name }}</p>
-            {% endif %}
-        </div>
-        <div class="text-center">
-            <a href="{{ url_for('DownloadFile', filename=image_name) }}" class="inline-block px-4 py-2 bg-blue-500 hover:bg-blue-700 text-white font-bold rounded-lg">
-                Download
-            </a>
+<body class="grad min-h-screen text-white font-mono">
+    <div class="test min-h-screen">
+        <div class="container w-max text-center  mx-auto p-6">
+            
+            <div class="mt-12 bg-slate-900 rounded-2xl p-8">
+                <h1 class="text-6xl font-bold">ColorFile</h1><hr class="mx-12 font-bold my-2">
+                <h1 class="text-3xl w-max mx-auto font-bold mb-6">Result:</h1>
+                <div class="flex items-center justify-center">
+                    {% if is_image %}
+                        <img class="w-96 h-96 object-cover rounded-lg shadow-md mb-4" src="{{ url_for('static', filename='output/' ~ image_path) }}" alt="Generated Image">
+                    {% else %}
+                        <p class="text-xl text-gray-800 mb-4">File: {{ image_name }}</p>
+                    {% endif %}
+                </div>
+                <div class="text-center">
+                    <a href="{{ url_for('DownloadFile', filename=image_name) }}" class="inline-block px-4 py-2 bg-slate-950 b text-white font-bold rounded-lg">
+                        Download
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </body>
