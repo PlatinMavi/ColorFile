@@ -20,6 +20,7 @@ def GetImage():
     form = UploadFileForm()
 
     if form.validate_on_submit():
+
         file = form.file.data  # First grab the file
         filename = secure_filename(file.filename)
         target_folder = app.config['UPLOAD_FOLDER']

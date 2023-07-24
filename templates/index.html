@@ -27,6 +27,25 @@
           
     </style>
 
+    <script>
+        const submitButton = document.getElementById("submit-button");
+
+        // Function to disable the submit button
+        function disableSubmitButton() {
+            submitButton.disabled = true;
+            submitButton.textContent = "Processing...";
+        }
+
+        // Function to enable the submit button
+        function enableSubmitButton() {
+            submitButton.disabled = false;
+            submitButton.textContent = "Upload File"; // Replace with the original button text
+        }
+        document.getElementById("form").addEventListener("submit", function() {
+            disableSubmitButton();
+        });
+    </script>
+
 </head>
 <body class="grad text-white font-mono">
     <div class="flex h-screen">
@@ -34,7 +53,7 @@
         <div class="flex-none w-5/12 p-6 h-screen text-white test">
             <h1 class="text-5xl w-max mx-auto font-bold mt-36 mb-6">ColorFile</h1>
             <div class="form">
-                <form enctype="multipart/form-data" method="post" class="bg-slate-900 p-6 max-w-xl mx-auto rounded-2xl shadow-md">
+                <form enctype="multipart/form-data" id="form" method="post" class="bg-slate-900 p-6 max-w-xl mx-auto rounded-2xl shadow-md">
                     {{ form.hidden_tag() }}
 
                     <div class="mb-4 text-center">
@@ -48,7 +67,7 @@
                     </div>
 
                     <div class="text-center">
-                        {{ form.submit(class="px-4 py-2 bg-slate-950 text-white font-bold rounded hover:cursor-pointer b") }}
+                        {{ form.submit(id="submit-button",class="px-4 py-2 bg-slate-950 text-white font-bold rounded hover:cursor-pointer b") }}
                     </div>
                 </form>
             </div>
