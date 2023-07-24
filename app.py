@@ -39,12 +39,17 @@ def GetImage():
         selected_operation = form.operation.data
 
         if selected_operation == "encode":
-            pp = ImageTools.ImageTools().GenerateImage(path)
+            try:
+                pp = ImageTools.ImageTools().GenerateImage(path)
+            except:
+                return "404"
         elif selected_operation == "decode":
-            pp = ImageTools.ImageTools().DecodeImage(path)
+            try:
+                pp = ImageTools.ImageTools().DecodeImage(path)
+            except:
+                return "404"
         else:
-            # Handle any other cases if needed
-            pass
+            return "404"
 
         pa = pp.split("/")[-1]
  

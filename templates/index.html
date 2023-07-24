@@ -5,16 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ColorFile</title>
 
+    <!-- Add the link to your custom Tailwind CSS file or use the CDN link -->
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <h1>Flask Image Uploas</h1>
-    <form enctype="multipart/form-data" method="post">
-        {{form.hidden_tag()}}
-        {{form.file()}}
-        {{form.operation()}}
-        {{form.submit()}}
-        
-    </form>
+<body class="bg-gray-100">
+    <div class="container mx-auto p-6">
+        <h1 class="text-3xl w-max mx-auto font-bold mb-6">ColorFile</h1>
+        <form enctype="multipart/form-data" method="post" class="bg-white p-6 rounded-lg shadow-md">
+            {{ form.hidden_tag() }}
+
+            <div class="mb-4">
+                <label for="{{ form.file.id_for_label }}" class="block text-gray-700 text-sm font-bold mb-2">Select File:</label>
+                {{ form.file(class="block w-full border p-2 rounded") }}
+            </div>
+
+            <div class="mb-4">
+                <label for="{{ form.operation.id_for_label }}" class="block text-gray-700 text-sm font-bold mb-2">Select Operation:</label>
+                {{ form.operation(class="block w-full border p-2 rounded") }}
+            </div>
+
+            <div class="text-center">
+                {{ form.submit(class="px-4 py-2 bg-blue-500 text-white font-bold rounded hover:bg-blue-700") }}
+            </div>
+        </form>
+    </div>
 </body>
 </html>
