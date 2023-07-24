@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ColorFile</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <h1>Flask Image Uploas</h1>
+    <form enctype="multipart/form-data" method="post">
+        {{form.hidden_tag()}}
+        {{form.file()}}
+        {{form.operation()}}
+        {{form.submit()}}
+        
+    </form>
+</body>
+</html>
