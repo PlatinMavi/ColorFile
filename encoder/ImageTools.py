@@ -33,7 +33,7 @@ class ImageTools():
         encoded_string = encoded_string.split(".")
         encoded_str = encoded_string[0]
         extension = encoded_string[-1]
-        n = 1
+        n = 2
         encoded_list = [encoded_str[i * n:(i + 1) * n] for i in range((len(encoded_str) + n - 1) // n )]
 
         image = Image.new("RGB", self.CheckSize(len(encoded_list)), color="white")
