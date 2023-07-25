@@ -75,5 +75,5 @@ def DownloadFile(filename):
     file_path = os.path.join("C:/Users/PC/Desktop/ColorFile/static/output", filename)
     return send_file(file_path, as_attachment=True)
 
-if __name__ == '__app__':
+if __name__ == '__main__':
     app.run(debug=True)
